@@ -66,10 +66,9 @@ SELINUX_IGNORE_NEVERALLOWS := true
 # Crypto
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-BOARD_USES_METADATA_PARTITION := true
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := false
 
 # System as root
 BOARD_SUPPRESS_SECURE_ERASE := true
@@ -127,9 +126,9 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 
-# Hack: prevent anti rollback
+# # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 16.1.0
+# PLATFORM_VERSION := 16.1.0
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -156,3 +155,27 @@ TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_SKIP_COMPATIBILITY_CHECK := true
+
+#shrp stuff
+
+# NOTE - Dont use '-' or blank spaces in flag values , otherwise it will create build errors or other bugs in recovery (Excluding SHRP_PATH,SHRP_REC). 
+# Path of your SHRP Tree
+SHRP_PATH := device/xiaomi/merlin
+# Maintainer name *
+SHRP_MAINTAINER := Box_Boi
+# Device codename *
+SHRP_DEVICE_CODE := merlin
+# Recovery Type (It can be treble,normal,SAR) [Only for About Section] *
+SHRP_REC_TYPE := Treble
+# Recovery Type (It can be A/B or A_only) [Only for About Section] *
+SHRP_DEVICE_TYPE := A_Only
+# Notch
+SHRP_NOTCH := true
+# EDL
+SHRP_EDL_MODE := 1
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+# Path
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
